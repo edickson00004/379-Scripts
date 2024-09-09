@@ -2,14 +2,6 @@
 from array import array
 import random as r
 
-# Constants
-N = 10
-
-# Globals
-x = array('i', [0]*N)
-
-# Subroutines
-
 # Insertion Sort
 def insertion_sort(A, n):
 	"""Sort a list or numpy array.
@@ -33,6 +25,17 @@ def insertion_sort(A, n):
 
 		# Insert key at the correct position in the list or array.
 		A[j + 1] = key
+# Biggest
+def longestRepeat(list, n):
+        currentStreak = 0
+        maxStreak = 0
+        for i in range (n-1):
+                if (list[i] != list[i+1]):
+                        if (currentStreak > maxStreak):
+                                maxStreak = currentStreak
+                else:
+                        currentStreak += 1
+        return maxStreak
 # Printing
 def print_list(list, n):
         for i in range(0, n):
@@ -48,20 +51,24 @@ def main():
         print()
         
         # For list to initialize array elements
-        for i in range (0, N):
-                x[i] = r.randint(0, 99)
+        sortList = [5, 1, 7, 3, 1, 3, 9, 3, 3]
+        N = len(sortList)
 
         # Print initialized elements and explanatory header
         print("List before sorting:")
-        print_list(x, N)
+        print_list(sortList, N)
         print()
 
         # Invoke insertion sort algorithm
-        insertion_sort(x, N)
+        insertion_sort(sortList, N)
 
         # Print sorted list and explanatory header
         print("List after sorting:")
-        print_list(x, N)
+        print_list(sortList, N)
+
+        print("Longest Repeat:")
+        print(longestRepeat(sortList, N))
+
         
         
 # Start-up Scripts

@@ -4,11 +4,13 @@
 #include <time.h>
 
 // Constants
-#define N 100000
+#define N 250000
 
 // Globals
 int x[N];
 
+void merge_sort_O0(int *A, int p, int r);
+void merge_sort_O3(int *A, int p, int r);
 // Subroutines
 
 
@@ -51,14 +53,15 @@ int main(void)
 
   for(int i = 0; i < N; i++)
     {
-      x[i] = (rand()>>12);
+      x[i] = (rand()>>24);
     }
 
-  //printf("List before sorting\n");
-  // print_list(x, N);
+//   printf("List before sorting\n");
+//   print_list(x, N);
 
-  // printf("\nList after sorting\n");
-  insertion_sort(x, N);
+//   printf("\nList after sorting\n");
+//   insertion_sort(x, N);
+    merge_sort_O3(x, 0, N-1);
   // print_list(x, N);
   
   return 0;
